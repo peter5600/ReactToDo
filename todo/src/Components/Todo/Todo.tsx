@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { EditModal } from '../EditTodo/EditModal'
+import styles from './Todo.module.css';
 
 export const Todo: React.FC<{text: string, active:boolean, id: number, reverseActive: (id: number) => void, 
     deleteTodo: (id: number) => void, updateTodo: (id:number, text:string) => void}> = (props) => {
@@ -18,13 +19,15 @@ export const Todo: React.FC<{text: string, active:boolean, id: number, reverseAc
         }
 
     return (
-    <div>
-        <div onClick={() => {props.reverseActive(props.id);}}>
-            {props.active == true &&<p>{props.text}</p>}
-            {props.active == false &&<s><p>{props.text}</p></s>}
+    <div className={`${styles.outerTodo}`}>
+        <div onClick={() => {props.reverseActive(props.id);}} className={`${styles.todoItemNameDiv}`}>
+            {props.active == true && <p className={`${styles.todoItemName}`}>{props.text}</p>}
+            {props.active == false && <s><p className={`${styles.todoItemName}`}>{props.text}</p></s>}
         </div>
-        <button onClick={editTodo}>Edit</button>
-        <button onClick={() => {props.deleteTodo(props.id)}}>Delete</button>
+        <div className={`${styles.todoBtnGroup}`}>
+            <button onClick={editTodo} className={`${styles.todoEdit}`}>Edit</button>
+            <button onClick={() => {props.deleteTodo(props.id)}} className={`${styles.todoDelete}`}>Delete</button>
+        </div>
         {isOpen && <EditModal modalClose={modalClose} formSubmit={todoEdited}></EditModal>}
     </div>
     

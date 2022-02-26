@@ -1,3 +1,29 @@
 .form{
-    margin: auto;
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:50px;
+}
+.formElements{
+    position: absolute;
+    top: 50%;  
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+.formLabel{
+    font-size: 24px;
+}
+
+.formInput{
+    margin-top: 35px;
+    border: 2px solid black;
+    font-size:24px;
+    border-radius:12px;
+}
+
+.formSubmit{
+    margin-top: 75px;
+    border: 2px solid black;
+    font-size:24px;
+    border-radius:12px;
 }

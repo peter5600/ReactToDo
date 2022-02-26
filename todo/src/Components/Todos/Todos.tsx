@@ -67,7 +67,6 @@ export default function Todos() {
     }
 
     const todoAdded = (text: string) => {
-        alert(text);
         updateTodoList((prevState) => {
             return [
                 ...prevState.concat({
